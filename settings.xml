@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+	<api>
+		<name>OpenWeatherMap</name>
+		<endpoint>api.openweathermap.org/data/2.5/weather</endpoint>
+		<key>REDACTED</key>
+	</api>
+	<data>
+		<cache>private\dat</cache>
+	</data>
+</settings>
