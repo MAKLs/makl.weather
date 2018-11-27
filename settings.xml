@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <settings>
 	<api>
-		<name>OpenWeatherMap</name>
-		<endpoint>api.openweathermap.org/data/2.5/weather</endpoint>
-		<key>REDACTED</key>
+			<weather>
+				<name>OpenWeatherMap</name>
+				<endpoint>api.openweathermap.org/data/2.5/weather</endpoint>
+				<key>REDACTED</key>
+			</weather>
+			<location>
+				<name>ip-api</name>
+				<endpoint>ip-api.com/json/</endpoint>
+				<key></key>
+			</location>
 	</api>
 	<data>
 		<cache>private\dat</cache>
