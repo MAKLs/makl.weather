@@ -180,9 +180,9 @@ $(Set-RGBText "   ~~~~~~~~~~~~~~" $COLORS["fog2"])
 
 function Get-WeatherIcon
 {
-	param
-	(
-		[string]$IconID
-	)
-	return $ICONS[$IconID]
+   param
+   (
+      [string]$IconID
+   )
+   return $ICONS[$IconID]
 }

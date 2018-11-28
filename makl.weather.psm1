@@ -1,20 +1,20 @@
-[array]$public = @(Get-ChildItem -Path (Join-Path $PSScriptRoot "public") -Recurse -Filter *.ps1)
-[array]$private = @(Get-ChildItem -Path (Join-Path $PSScriptRoot "private") -Recurse -Filter *.ps1)
+$public = Get-ChildItem -Path (Join-Path $PSScriptRoot "public") -Recurse -Filter *.ps1
+$private = Get-ChildItem -Path (Join-Path $PSScriptRoot "private") -Recurse -Filter *.ps1
 
 #Load public functions
-foreach ($import in $public)
+foreach ($import in $private)
 {
-	. $import.FullName
-	#catch {Write-Warning ("Failed to import public function {0}" -f $import.BaseName)}
-	Write-Host ("Imported public function {0}" -f $import.BaseName)
+   try {. $import.FullName}
+   catch {Write-Warning ("Failed to import public function {0}" -f $import.BaseName)}
+   Write-Host ("Imported public function {0}" -f $import.BaseName)
 }
 
 #Load private functions
 foreach ($import in $private)
 {
-	try {. $import.FullName}
-	catch {Write-Warning ("Failed to import private function {0}" -f $import.BaseName)}
-	Write-Host ("Imported private function {0}" -f $import.BaseName)
+   try {. $import.FullName}
+   catch {Write-Warning ("Failed to import private function {0}" -f $import.BaseName)}
+   Write-Host ("Imported private function {0}" -f $import.BaseName)
 }
 
 #Load settings
