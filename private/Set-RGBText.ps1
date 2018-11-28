@@ -9,7 +9,6 @@ function Set-RGBText
     )
 
     $e = [char]27
-	$topStr = "$e[0;0H"
     $eStr = "$e[{0}m{1}$e[0m"
     $fargs = @()
     $bargs = @()
