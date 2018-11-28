@@ -2,7 +2,7 @@ $public = Get-ChildItem -Path (Join-Path $PSScriptRoot "public") -Recurse -Filte
 $private = Get-ChildItem -Path (Join-Path $PSScriptRoot "private") -Recurse -Filter *.ps1
 
 #Load public functions
-foreach ($import in $private)
+foreach ($import in $public)
 {
    try {. $import.FullName}
    catch {Write-Warning ("Failed to import public function {0}" -f $import.BaseName)}
