@@ -1,5 +1,5 @@
-[array]$public = @(Get-ChildItem -NoColor -Path (Join-Path $PSScriptRoot "public") -Recurse -Filter *.ps1)
-[array]$private = @(Get-ChildItem -NoColor -Path (Join-Path $PSScriptRoot "private") -Recurse -Filter *.ps1)
+[array]$public = @(Get-ChildItem -Path (Join-Path $PSScriptRoot "public") -Recurse -Filter *.ps1)
+[array]$private = @(Get-ChildItem -Path (Join-Path $PSScriptRoot "private") -Recurse -Filter *.ps1)
 
 #Load public functions
 foreach ($import in $public)
