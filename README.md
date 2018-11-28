@@ -1,7 +1,7 @@
 # makl.weather
 PowerShell module for getting the current weather report
 
-##Installation
+## Installation
 ```powershell
 Install-Module makl.weather
 ```
