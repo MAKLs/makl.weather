@@ -47,11 +47,11 @@ function Write-Weather
       $unit_symbol["pressure"],
       $unit_symbol["wind"],
       (Get-DirectionIcon -Direction $WeatherData.wind.deg),
-      (Set-DatumColor -ValueType "Temperature" -Value $WeatherData.main.temp -SourceUnit $Unit),
+      (Set-DatumColor -DatumType ([DatumTypes]::Temperature) -Value $WeatherData.main.temp -SourceUnit $Unit),
       $WeatherData.main.pressure,
       $WeatherData.main.humidity,
       $WeatherData.clouds.all,
-      (Set-DatumColor -ValueType "WindSpeed" -Value $WeatherData.wind.speed -SourceUnit $Unit)
+      (Set-DatumColor -DatumType  ([DatumTypes]::Temperature) -Value $WeatherData.wind.speed -SourceUnit $Unit)
    )
    $report = (EmbedInto-WeatherIcon -IconString $weatherIcon -ToEmbed $FORMAT -IconOffset 4 -Padding 3) -f $report_values
    

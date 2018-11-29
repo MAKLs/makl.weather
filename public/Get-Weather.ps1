@@ -1,9 +1,19 @@
+#region Global enumerations
 enum Units
 {
    kelvin
    metric
    imperial #default
 }
+
+enum DatumTypes
+{
+   Temperature
+   Pressure
+   WindSpeed
+   CloudCover
+}
+#endregion
 
 
 function Get-Weather

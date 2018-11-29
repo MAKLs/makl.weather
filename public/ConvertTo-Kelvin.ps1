@@ -38,7 +38,7 @@ function ConvertTo-Kelvin
    param
    (
       [ValidateSet("Temperature","WindSpeed")]
-      [string]$ValueType,
+      [DatumTypes[]]$DatumType,
 
       [double]$Value,
 
@@ -46,10 +46,11 @@ function ConvertTo-Kelvin
    )
    
    #OpenWeatherMaps API only changes units for these types
-   switch ($ValueType)
+   switch ($DatumType)
    {
-      "Temperature"   {return ConvertTo-Temperature -Temperature $Value -Unit $SourceUnit}
-      "WindSpeed"     {return ConvertTo-Speed -Speed $Value -Unit $SourceUnit}
+      ([DatumTypes]::Temperature)   {return ConvertTo-Temperature -Temperature $Value -Unit $SourceUnit}
+      ([DatumTypes]::WindSpeed)     {return ConvertTo-Speed -Speed $Value -Unit $SourceUnit}
+      default                       {return $Value}
    }
 }
 #endregion
