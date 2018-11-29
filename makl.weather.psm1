@@ -20,12 +20,12 @@ foreach ($import in $private)
 #Load WEATHER_SETTINGS
 try
 {
-   $Global:WEATHER_SETTINGS = ([xml](Get-Content (Join-Path $PSScriptRoot "WEATHER_SETTINGS.xml"))).WEATHER_SETTINGS
+   $Global:WEATHER_SETTINGS = ([xml](Get-Content (Join-Path $PSScriptRoot "settings.xml"))).settings
    $Global:WEATHER_SETTINGS.data.cache = [string](Join-Path $PSScriptRoot $Global:WEATHER_SETTINGS.data.cache)
 }
 catch 
 {
-   Write-Warning "Could not load module WEATHER_SETTINGS"
+   Write-Warning "Could not load module settings"
 }
 
 #Export only public functions
