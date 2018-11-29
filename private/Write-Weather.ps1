@@ -30,25 +30,10 @@ function Write-Weather
    #Get the temperature unit
    switch ($Unit)
    {
-      ([Units]::kelvin)
-      {
-         $unit_symbol = @{temperature = " K"; pressure = "hPa"; wind = "m/s"}
-         break
-      }
-      ([Units]::metric)
-      {
-         $unit_symbol = @{temperature = [char]176 + "C"; pressure = "hPa"; wind = "m/s"}
-         break
-      }
-      ([Units]::imperial) 
-      {
-         $unit_symbol = @{temperature = [char]176 + "F"; pressure = "hPa"; wind = "mph"}
-         break
-      }
-      default
-      {
-         $unit_symbol = @{temperature = ""; pressure = ""; wind = ""}
-      }
+      ([Units]::kelvin)   {$unit_symbol = @{temperature = " K"; pressure = "hPa"; wind = "m/s"}; break}
+      ([Units]::metric)   {$unit_symbol = @{temperature = [char]176 + "C"; pressure = "hPa"; wind = "m/s"}; break}
+      ([Units]::imperial) {$unit_symbol = @{temperature = [char]176 + "F"; pressure = "hPa"; wind = "mph"}; break}
+      default             {$unit_symbol = @{temperature = ""; pressure = ""; wind = ""}}
    }
    
    $weatherIcon = Get-WeatherIcon -IconID $WeatherData.weather[0].icon
