@@ -7,8 +7,13 @@ function Get-MyLocation ()
    }
    catch
    {
-      Write-Warning "Unable to connect to endpoint: $endpoint"
-      return $null
+      Write-Host "Unable to get location data from endpoint: `n`t$endpoint" -ForegroundColor $Host.PrivateData.WarningForegroundColor
+      Write-Host $_ -ForegroundColor $Host.PrivateData.WarningForegroundColor
+      $response = @{lon = 0; lat = 0}
    }
-   return New-Object -Property @{lon = $response.lon; lat = $response.lat} -TypeName PSObject
+   finally
+   {
+      $response =  New-Object -Property @{lon = $response.lon; lat = $response.lat} -TypeName PSObject
+   }
+   return $response
 }

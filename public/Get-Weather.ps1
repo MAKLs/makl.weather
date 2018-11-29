@@ -33,6 +33,7 @@ function Get-Weather
    $endpoint = $Global:WEATHER_SETTINGS.api.weather.endpoint
    $key = $Global:WEATHER_SETTINGS.api.weather.key
    $unitVal = if ($Unit -ne [Units]::kelvin) {"&units={0}" -f ($Unit -as [string])} else {""}
+
    if ($PSCmdlet.ParameterSetName -eq "coord")
    {
       if ($Coordinates.Count -ne 2)
@@ -54,11 +55,11 @@ function Get-Weather
    }
    catch
    {
-      Write-Warning "Unable to connect to endpoint: $endpoint"
+      Write-Host "Unable to get weather data from endpoint: `n`t$endpoint" -ForegroundColor $Host.PrivateData.ErrorForegroundColor
+      Write-Host $_ -ForegroundColor $Host.PrivateData.ErrorForegroundColor
       return $null
    }
    
    Write-Weather -WeatherData $weatherData -Unit $Unit
    if ($PassThru) {return $weatherData}
-   #else {Write-Weather -WeatherData $weatherData}
 }
