@@ -3,11 +3,11 @@ $FORMAT = @(
 ""
 "Current weather report for $(Set-RGBText "{3}" 132,222,2), $(Set-RGBText "{4}" 132,222,2)",
 "",
-"Temperature: {9:g3}{5}",
+"Temperature: {9}{5}",
 "Pressure   : {10:g4} {6}",
 "Humidity   : {11:g3}%",
 "Coverage   : {12:g2}%",
-"Wind       : {13:g3} {7} $(Set-RGBText "{8}" 255,51,51)",
+"Wind       : {13} {7} $(Set-RGBText "{8}" 255,51,51)",
 "",
 "",
 "Last updated: {0:dd-MMM-yyyy HH:mm:ss}",
@@ -47,11 +47,11 @@ function Write-Weather
       $unit_symbol["pressure"],
       $unit_symbol["wind"],
       (Get-DirectionIcon -Direction $WeatherData.wind.deg),
-      $WeatherData.main.temp,
+      (Set-DatumColor -ValueType "Temperature" -Value $WeatherData.main.temp -SourceUnit $Unit),
       $WeatherData.main.pressure,
       $WeatherData.main.humidity,
       $WeatherData.clouds.all,
-      $WeatherData.wind.speed
+      (Set-DatumColor -ValueType "WindSpeed" -Value $WeatherData.wind.speed -SourceUnit $Unit)
    )
    $report = (EmbedInto-WeatherIcon -IconString $weatherIcon -ToEmbed $FORMAT -IconOffset 4 -Padding 3) -f $report_values
    
