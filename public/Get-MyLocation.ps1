@@ -1,6 +1,6 @@
 function Get-MyLocation ()
 {
-   $endpoint = $Global:SETTINGS.api.location.endpoint
+   $endpoint = $Global:WEATHER_SETTINGS.api.location.endpoint
    try
    {
       $response = Invoke-RestMethod $endpoint

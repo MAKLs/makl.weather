@@ -17,11 +17,16 @@ foreach ($import in $private)
    Write-Host ("Imported private function {0}" -f $import.BaseName)
 }
 
-#Load settings
-$Global:SETTINGS = ([xml](Get-Content (Join-Path $PSScriptRoot "settings.xml"))).settings
-$Global:SETTINGS.data.cache = [string](Join-Path $PSScriptRoot $Global:SETTINGS.data.cache)
-
-#catch {Write-Warning "Could not load module settings"}
+#Load WEATHER_SETTINGS
+try
+{
+   $Global:WEATHER_SETTINGS = ([xml](Get-Content (Join-Path $PSScriptRoot "WEATHER_SETTINGS.xml"))).WEATHER_SETTINGS
+   $Global:WEATHER_SETTINGS.data.cache = [string](Join-Path $PSScriptRoot $Global:WEATHER_SETTINGS.data.cache)
+}
+catch 
+{
+   Write-Warning "Could not load module WEATHER_SETTINGS"
+}
 
 #Export only public functions
 Export-ModuleMember -Function $public.BaseName

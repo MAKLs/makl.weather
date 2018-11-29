@@ -30,8 +30,8 @@ function Get-Weather
       [switch]$PassThru
    )
 
-   $endpoint = $Global:SETTINGS.api.weather.endpoint
-   $key = $Global:SETTINGS.api.weather.key
+   $endpoint = $Global:WEATHER_SETTINGS.api.weather.endpoint
+   $key = $Global:WEATHER_SETTINGS.api.weather.key
    $unitVal = if ($Unit -ne [Units]::kelvin) {"&units={0}" -f ($Unit -as [string])} else {""}
    if ($PSCmdlet.ParameterSetName -eq "coord")
    {

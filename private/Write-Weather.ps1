@@ -54,8 +54,8 @@ function Write-Weather
    $weatherIcon = Get-WeatherIcon -IconID $WeatherData.weather[0].icon
    $report_values = @(
       (Get-Date "1970-01-01 00:00:00").AddSeconds($WeatherData.dt).toLocalTime(),
-      $Global:SETTINGS.api.weather.name,
-      $Global:SETTINGS.api.location.name
+      $Global:WEATHER_SETTINGS.api.weather.name,
+      $Global:WEATHER_SETTINGS.api.location.name
       $WeatherData.name,
       $WeatherData.sys.country,
       $unit_symbol["temperature"],
