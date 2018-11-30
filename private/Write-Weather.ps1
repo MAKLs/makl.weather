@@ -53,7 +53,7 @@ function Write-Weather
       $WeatherData.clouds.all,
       $WeatherData.wind.speed
    )
-   $report = (EmbedInto-WeatherIcon -IconString $weatherIcon -ToEmbed $FORMAT -IconOffset 4 -Padding 3) -f $report_values
+   $report = (EmbedInto-WeatherIcon -IconString $weatherIcon -ToEmbed $FORMAT -IconOffset 4 -Padding 1) -f $report_values
    
    if (!$Host.UI.SupportsVirtualTerminal)
    {
