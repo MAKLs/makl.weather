@@ -3,11 +3,12 @@ $FORMAT = @(
 ""
 "Current weather report for $(Set-RGBText "{3}" 132,222,2), $(Set-RGBText "{4}" 132,222,2)",
 "",
-"Temperature: {9:g3}{5}",
-"Pressure   : {10:g4} {6}",
-"Humidity   : {11:g3}%",
-"Coverage   : {12:g2}%",
-"Wind       : {13:g3} {7} $(Set-RGBText "{8}" 255,51,51)",
+"Condition  : {9}",
+"Temperature: {10:g3}{5}",
+"Pressure   : {11:g4} {6}",
+"Humidity   : {12:g3}%",
+"Coverage   : {13:g2}%",
+"Wind       : {14:g3} {7} $(Set-RGBText "{8}" 255,51,51)",
 "",
 "",
 "Last updated: {0:dd-MMM-yyyy HH:mm:ss}",
@@ -47,6 +48,7 @@ function Write-Weather
       $unit_symbol["pressure"],
       $unit_symbol["wind"],
       (Get-DirectionIcon -Direction $WeatherData.wind.deg),
+      $WeatherData.weather[0].description,
       $WeatherData.main.temp,
       $WeatherData.main.pressure,
       $WeatherData.main.humidity,
@@ -61,5 +63,5 @@ function Write-Weather
       $report = Remove-TerminalColors $report
    }
    
-   Write-Host $report
+   Write-Host $report -ForegroundColor White
 }
