@@ -41,8 +41,8 @@ function Write-Weather
       (Get-Date "1970-01-01 00:00:00").AddSeconds($WeatherData.dt).toLocalTime(),
       $Global:WEATHER_SETTINGS.api.weather.name,
       $Global:WEATHER_SETTINGS.api.location.name
-      $WeatherData.name,
-      $WeatherData.sys.country,
+      $(if($WeatherData.name) {$WeatherData.name} else {$WeatherData.coord.lat}),
+      $(if($WeatherData.sys.country) {$WeatherData.sys.country} elseif ($WeatherData.name) {$WeatherData.name} else {$WeatherData.coord.lon}),
       $unit_symbol["temperature"],
       $unit_symbol["pressure"],
       $unit_symbol["wind"],
