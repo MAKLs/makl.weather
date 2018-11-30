@@ -43,7 +43,7 @@ $(Set-RGBText "          ``'``" $COLORS["moon"])
 "@;
 
 "02d" = @"
-$(Set-RGBText "          \  |  /       " $COLORS["ray"])
+$(Set-RGBText "          \  |  /     " $COLORS["ray"])
 $(Set-RGBText "            .-." $COLORS["sun"])
 $(Set-RGBText "       .--." $COLORS["cloudd"])$(Set-RGBText "(   )  " $COLORS["sun"])$(Set-RGBText "--" $COLORS["ray"])
 $(Set-RGBText "    .-(    )." $COLORS["cloudd"])$(Set-RGBText "'``" $COLORS["sun"])
@@ -53,7 +53,7 @@ $(Set-RGBText "  ((___.__)__)" $COLORS['cloudd'])$(Set-RGBText "  \" $COLORS["ra
 
 "02n" = @"
                       
-$(Set-RGBText "              .-.       " $COLORS["moon"])
+$(Set-RGBText "              .-.     " $COLORS["moon"])
 $(Set-RGBText "         .--." $COLORS["cloudn"])$(Set-RGBText "(``'.)" $COLORS["moon"])
 $(Set-RGBText "      .-(    )." $COLORS["cloudn"])$(Set-RGBText "'``" $COLORS["moon"])
 $(Set-RGBText "    ((___.__)__)" $COLORS['cloudn'])
@@ -62,25 +62,25 @@ $(Set-RGBText "    ((___.__)__)" $COLORS['cloudn'])
 
 "03d" = @"
  
- 
-$(Set-RGBText "         .--.           " $COLORS["fog1"])
+$(Set-RGBText "         .--.         " $COLORS["fog1"])
 $(Set-RGBText "      .-(    )." $COLORS["fog1"])
 $(Set-RGBText "    ((___.__)__)" $COLORS['fog1'])
+ 
  
 "@;
 
 "03n" = @"
  
- 
-$(Set-RGBText "         .--.           " $COLORS["fog2"])
+$(Set-RGBText "         .--.         " $COLORS["fog2"])
 $(Set-RGBText "      .-(    )." $COLORS["fog2"])
 $(Set-RGBText "    ((___.__)__)" $COLORS['fog2'])
+ 
  
 "@;
 
 "04d" = @"
  
-$(Set-RGBText "               .--.     " $COLORS["fog2"])
+$(Set-RGBText "               .--.   " $COLORS["fog2"])
 $(Set-RGBText "     .--." $COLORS["fog1"])$(Set-RGBText "   .-(    )." $COLORS["fog2"])
 $(Set-RGBText "  .-(    )." $COLORS["fog1"])$(Set-RGBText "((__.__)__)" $COLORS["fog2"])
 $(Set-RGBText "((___.__)__)" $COLORS['fog1'])
@@ -115,7 +115,7 @@ $(Set-RGBText "   \  \  \  " $COLORS["rain"])
 "@;
 
 "10d" = @"
-$(Set-RGBText "          \  |  /       " $COLORS["ray"])
+$(Set-RGBText "          \  |  /     " $COLORS["ray"])
 $(Set-RGBText "            .-." $COLORS["sun"])
 $(Set-RGBText "       .--." $COLORS["fog1"])$(Set-RGBText "(   )  " $COLORS["sun"])$(Set-RGBText "--" $COLORS["ray"])
 $(Set-RGBText "    .-(    )." $COLORS["fog1"])$(Set-RGBText "'``" $COLORS["sun"])
@@ -124,7 +124,7 @@ $(Set-RGBText "     \  \  \" $COLORS["rain"])
 "@;
 
 "10n" = @"
-$(Set-RGBText "              .-.       " $COLORS["moon"])
+$(Set-RGBText "              .-.     " $COLORS["moon"])
 $(Set-RGBText "         .--." $COLORS["cloudn"])$(Set-RGBText "(``'.)" $COLORS["moon"])
 $(Set-RGBText "      .-(    )." $COLORS["cloudn"])$(Set-RGBText "'``" $COLORS["moon"])
 $(Set-RGBText "    ((___.__)__)" $COLORS['cloudn'])
@@ -136,8 +136,8 @@ $(Set-RGBText "       \  \  \" $COLORS["rain"])
 $(Set-RGBText "               .--." $COLORS["fog2"])
 $(Set-RGBText "     .--." $COLORS["fog1"])$(Set-RGBText "   .-(    )." $COLORS["fog2"])
 $(Set-RGBText "  .-(    )." $COLORS["fog1"])$(Set-RGBText "((__.__)__)" $COLORS["fog2"])
-$(Set-RGBText "((___.__)__)" $COLORS["fog1"])$(Set-RGBText " _/   _/   " $COLORS["lightning"])
-$(Set-RGBText "  _/   _/   " $COLORS["lightning"])$(Set-RGBText "/    /   " $COLORS["lightning"])
+$(Set-RGBText "((___.__)__)" $COLORS["fog1"])$(Set-RGBText " _/   _/" $COLORS["lightning"])
+$(Set-RGBText "  _/   _/   " $COLORS["lightning"])$(Set-RGBText "/    /" $COLORS["lightning"])
 $(Set-RGBText " /    /   " $COLORS["lightning"])
 "@;
 
@@ -145,8 +145,8 @@ $(Set-RGBText " /    /   " $COLORS["lightning"])
 $(Set-RGBText "               .--." $COLORS["fog2"])
 $(Set-RGBText "     .--." $COLORS["fog2"])$(Set-RGBText "   .-(    )." $COLORS["fog2"])
 $(Set-RGBText "  .-(    )." $COLORS["fog2"])$(Set-RGBText "((__.__)__)" $COLORS["fog2"])
-$(Set-RGBText "((___.__)__)" $COLORS["fog2"])$(Set-RGBText " _/   _/   " $COLORS["lightning"])
-$(Set-RGBText "  _/   _/   " $COLORS["lightning"])$(Set-RGBText "/    /   " $COLORS["lightning"])
+$(Set-RGBText "((___.__)__)" $COLORS["fog2"])$(Set-RGBText " _/   _/" $COLORS["lightning"])
+$(Set-RGBText "  _/   _/   " $COLORS["lightning"])$(Set-RGBText "/    /" $COLORS["lightning"])
 $(Set-RGBText " /    /   " $COLORS["lightning"])
 "@;
 
@@ -170,7 +170,7 @@ $(Set-RGBText "    *  *  * " $COLORS["snow"])
 
 "50d" = @"
  
-$(Set-RGBText "   ~~~~~~~~~~~~~~       " $COLORS["fog1"])
+$(Set-RGBText "   ~~~~~~~~~~~~~~     " $COLORS["fog1"])
 $(Set-RGBText "    ~~~~~~~~~~~~~~" $COLORS["fog2"])
 $(Set-RGBText "   ~~~~~~~~~~~~~~" $COLORS["fog1"])
 $(Set-RGBText "    ~~~~~~~~~~~~~~" $COLORS["fog2"])
@@ -179,7 +179,7 @@ $(Set-RGBText "    ~~~~~~~~~~~~~~" $COLORS["fog2"])
 
 "50n" = @"
  
-$(Set-RGBText "   ~~~~~~~~~~~~~~       " $COLORS["fog2"])
+$(Set-RGBText "   ~~~~~~~~~~~~~~     " $COLORS["fog2"])
 $(Set-RGBText "    ~~~~~~~~~~~~~~" $COLORS["fog2"])
 $(Set-RGBText "   ~~~~~~~~~~~~~~" $COLORS["fog2"])
 $(Set-RGBText "    ~~~~~~~~~~~~~~" $COLORS["fog2"])
