@@ -53,7 +53,7 @@ function Write-Weather
       $WeatherData.clouds.all,
       (Set-DatumColor -DatumType ([DatumTypes]::WindSpeed) -Value $WeatherData.wind.speed -SourceUnit $Unit)
    )
-   $report = (EmbedInto-WeatherIcon -IconString $weatherIcon -ToEmbed $FORMAT -IconOffset 4 -Padding 3) -f $report_values
+   $report = (EmbedInto-WeatherIcon -IconString $weatherIcon -ToEmbed $FORMAT -IconOffset 4 -Padding 1) -f $report_values
    
    if (!$Host.UI.SupportsVirtualTerminal)
    {
