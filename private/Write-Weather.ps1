@@ -51,7 +51,7 @@ function Write-Weather
       $WeatherData.main.pressure,
       $WeatherData.main.humidity,
       $WeatherData.clouds.all,
-      (Set-DatumColor -DatumType  ([DatumTypes]::Temperature) -Value $WeatherData.wind.speed -SourceUnit $Unit)
+      (Set-DatumColor -DatumType ([DatumTypes]::WindSpeed) -Value $WeatherData.wind.speed -SourceUnit $Unit)
    )
    $report = (EmbedInto-WeatherIcon -IconString $weatherIcon -ToEmbed $FORMAT -IconOffset 4 -Padding 3) -f $report_values
    
