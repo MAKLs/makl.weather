@@ -9,11 +9,7 @@ function Get-MyLocation ()
    {
       Write-Host "Unable to get location data from endpoint: `n`t$endpoint" -ForegroundColor $Host.PrivateData.WarningForegroundColor
       Write-Host $_ -ForegroundColor $Host.PrivateData.WarningForegroundColor
-      $response = @{lon = 0; lat = 0}
-   }
-   finally
-   {
-      $response =  New-Object -Property @{lon = $response.lon; lat = $response.lat} -TypeName PSObject
+      $response = New-Object -Property @{lon = 0; lat = 0} -TypeName PSObject
    }
    return $response
 }
