@@ -40,10 +40,12 @@ function Get-Weather
       [switch]$PassThru
    )
 
-   $endpoint = $Global:WEATHER_SETTINGS.api.weather.endpoint
-   $key = $Global:WEATHER_SETTINGS.api.weather.key
+   #Set up query parameters
+   $endpoint = $Global:WEATHER_SETTINGS.settings.api.weather.endpoint
+   $key = $Global:WEATHER_SETTINGS.settings.api.weather.key
    $unitVal = if ($Unit -ne [Units]::kelvin) {"&units={0}" -f ($Unit -as [string])} else {""}
 
+   #Build the weather API query
    if ($PSCmdlet.ParameterSetName -eq "coord")
    {
       if ($Coordinates.Count -ne 2)
@@ -59,6 +61,7 @@ function Get-Weather
    }
    $request = $endpoint + $query + ("&APPID={0}" -f $key)
    
+   #Make a request to the weather API to get the weather data
    try
    {
       $weatherData = Invoke-RestMethod $request
@@ -70,6 +73,7 @@ function Get-Weather
       return $null
    }
    
+   #Print out the weather report and optionally return the raw weather data
    Write-Weather -WeatherData $weatherData -Unit $Unit
    if ($PassThru) {return $weatherData}
 }
