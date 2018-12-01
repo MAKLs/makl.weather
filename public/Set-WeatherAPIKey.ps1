@@ -36,6 +36,5 @@ function Set-WeatherAPIKey
             Write-Host "Invalid response. Please enter 'y' or 'n'"
          }
       }
-
    }
 }
