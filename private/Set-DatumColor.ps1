@@ -10,7 +10,10 @@ function Set-DatumColor
       [Units[]]$SourceUnit
    )
 
+   #All color gradient limits are in API's "Kelvin" group (temp K, wind m/s, etc.)
    $valueKelvin = ConvertTo-Kelvin -DatumType $DatumType -Value $Value -SourceUnit $SourceUnit
+   
+   #Set the datum's color limits and optionally the color gradient
    switch ($DatumType)
    {
       ([DatumTypes]::Temperature)   {$gradparams = @{Lo = 266; Mid = 289; Hi = 310}; break}

@@ -31,16 +31,16 @@ function Get-ColorFromGradient
       {$_ -le $Lo}  {$colorratio = @{Lo = 1; Mid = 0; Hi = 0}; break}
       {$_ -le $Mid} {$normal = NormalizeOver-Range $Value $Lo $Mid; $colorratio = @{Lo = (1-$normal); Mid = $normal; Hi = 0}; break}
       {$_ -le $Hi}  {$normal = NormalizeOver-Range $Value $Mid $Hi; $colorratio = @{Lo = 0; Mid = (1-$normal); Hi = $normal}; break}
-      default       {$colorratio = @{Lo = 0; Mid = 0; Hi = 1}}
+      {$_ -gt $Hi}  {$colorratio = @{Lo = 0; Mid = 0; Hi = 1}}
    }
 
-   #Mix the colors from each gradient slot in the appropriate ratios
+   #Mix the colors from each limit in the appropriate ratios
    $color = @(0, 0, 0)
-   foreach ($slot in $Gradient.Keys)
+   foreach ($limit in $Gradient.Keys)
    {
       for ($i = 0; $i -lt $color.Count; $i++)
       {
-         $color[$i] += $colorratio[$slot] * $Gradient[$slot][$i]
+         $color[$i] += $colorratio[$limit] * $Gradient[$limit][$i]
       }
    }
 

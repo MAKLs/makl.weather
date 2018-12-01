@@ -8,6 +8,7 @@ function Get-DirectionIcon
       [string]$Unit = "Degree"
    )
    
+   #Set the values for a full rotation and sectors of 1/8 rotation
    switch ($Unit)
    {
       "Degree" {$rot = 360}
@@ -15,6 +16,7 @@ function Get-DirectionIcon
    }
    $sect = $rot / 8
    
+   #Group directions into the appropriate bucket
    switch ([int32][math]::round($Direction % $rot / $sect) % 8)
    {
       0 {return "N"}

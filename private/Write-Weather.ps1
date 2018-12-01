@@ -36,8 +36,9 @@ function Write-Weather
       ([Units]::imperial) {$unit_symbol = @{temperature = [char]176 + "F"; pressure = "hPa"; wind = "mph"}; break}
       default             {$unit_symbol = @{temperature = ""; pressure = ""; wind = ""}}
    }
-   
    $weatherIcon = Get-WeatherIcon -IconID $WeatherData.weather[0].icon
+   #TODO Organize report values better... perhaps in a hashtable and splat
+   #     into FORMAT for better readability
    $report_values = @(
       (Get-Date "1970-01-01 00:00:00").AddSeconds($WeatherData.dt).toLocalTime(),
       $Global:WEATHER_SETTINGS.settings.api.weather.name,
@@ -55,6 +56,7 @@ function Write-Weather
       $WeatherData.clouds.all,
       (Set-DatumColor -DatumType ([DatumTypes]::WindSpeed) -Value $WeatherData.wind.speed -SourceUnit $Unit)
    )
+   #Embed the weather icon into the report and format the values into it
    $report = (EmbedInto-WeatherIcon -IconString $weatherIcon -ToEmbed $FORMAT -IconOffset 4 -Padding 1) -f $report_values
    
    if (!$Host.UI.SupportsVirtualTerminal)
