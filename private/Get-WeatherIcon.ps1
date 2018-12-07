@@ -8,21 +8,29 @@ Each icon should satisfy the following:
    * Any blank line should contain at least one whitespace character
 #>
 
-$COLORS = @{
-"ray" = @(227,171,87);
-"sun" = @(255,247,0);
-"moon" = @(242,243,244);
-"cloudd" = @(209,234,255); #day cloud
-"cloudn" = @(113,126,138); #night cloud
-"fog1" = @(219,200,204); #day fog
-"fog2" = @(125,114,116); #night fog
-"rain" = @(124,185,232);
-"lightning" = @(255,255,51);
-"snow" = @(255,255,250);
-"star" = @(255,250,112)
-}
 
-$ICONS = @{
+function Get-WeatherIcon
+{
+   param
+   (
+      [string]$IconID
+   )
+
+   $COLORS = @{
+   "ray" = @(227,171,87);
+   "sun" = @(255,247,0);
+   "moon" = @(242,243,244);
+   "cloudd" = @(209,234,255); #day cloud
+   "cloudn" = @(113,126,138); #night cloud
+   "fog1" = @(219,200,204); #day fog
+   "fog2" = @(125,114,116); #night fog
+   "rain" = @(124,185,232);
+   "lightning" = @(255,255,51);
+   "snow" = @(255,255,250);
+   "star" = @(255,250,112)
+   }
+
+   $ICONS = @{
 
 "01d" = @"
 $(Set-RGBText "        \  |  /       " $COLORS["ray"])
@@ -187,12 +195,5 @@ $(Set-RGBText "    ~~~~~~~~~~~~~~" $COLORS["fog2"])
 "@
 }
 
-
-function Get-WeatherIcon
-{
-   param
-   (
-      [string]$IconID
-   )
    return $ICONS[$IconID]
 }
